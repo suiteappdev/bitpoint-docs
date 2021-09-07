@@ -1,241 +1,332 @@
 ---
+
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - json
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
-includes:
-  - errors
+includes: # api - group - category - call
+  - background/api_bkg_background
+  - users/api_users_divider
+  - users/api_users_act_activate2fa
+  - users/api_users_user_adduseraffiliatetag
+  - users/api_users_auth_authenticate2fa
+  - users/api_users_auth_authenticateuser
+  - users/api_users_user_canceluserreport
+  - users/api_users_user_getl2snapshot
+  - users/api_users_user_getlevel1
+  - users/api_users_user_getuseraccountinfos
+  - users/api_users_user_getuseraccounts
+  - users/api_users_user_getuseraffiliatecount
+  - users/api_users_user_getuseraffiliatetag
+  - users/api_users_system_getuserconfig
+  - users/api_users_system_getallunredacteduserconfigsforuser
+  - users/api_users_system_getunredacteduserconfigbykey
+  - users/api_users_system_getuserdevices
+  - users/api_users_user_getuserreporttickets
+  - users/api_users_user_getuserreportwriterresultrecords
+  - users/api_users_system_getvalidate2farequiredendpoints
+  - users/api_users_auth_logout
+  - users/api_users_system_registernewdevice
+  - users/api_users_user_subscribeaccountevents
+  - users/api_users_user_subscribelevel1
+  - users/api_users_user_subscribelevel2
+  - users/api_users_user_subscribeticker
+  - users/api_users_user_subscribetrades
+  - users/api_users_user_subscribeblocktrades
+  - users/api_users_user_unsubscribeblocktrades
+  - users/api_users_user_unsubscribelevel1
+  - users/api_users_user_unsubscribelevel2
+  - users/api_users_user_unsubscribeticker
+  - users/api_users_user_unsubscribetrades
+  - users/api_users_user_updateuseraffiliatetag
+  - users/api_users_system_validate2fa
+  - accounts/api_accts_divider
+  - accounts/api_accts_user_generatetradeactivityreport
+  - accounts/api_accts_user_generatetransactionactivityreport
+  - accounts/api_accts_user_generatetreasuryactivityreport
+  - accounts/api_accts_user_getaccountinfo
+  - accounts/api_accts_user_getaccountpositions
+  - accounts/api_accts_system_getallaccountconfigs
+  - accounts/api_accts_user_gettreasuryproductsforaccount
+  - accounts/api_accts_user_scheduletradeactivityreport
+  - accounts/api_accts_user_scheduletransactionactivityreport
+  - accounts/api_accts_user_scheduletreasuryactivityreport
+  - trades/api_trades_divider
+  - trades/api_trades_user_getaccounttrades
+  - trades/api_trades_user_getaccounttransactions
+  - trades/api_trades_user_getopentradereports
+  - trades/api_trades_user_getallopentradereports
+  - trades/api_trades_user_gettickerhistory
+  - trades/api_trades_user_gettradeshistory
+  - oms_orders/api_omsord_divider
+  - oms_orders/api_omsord_user_cancelallorders
+  - oms_orders/api_omsord_user_cancelorder
+  - oms_orders/api_omsord_user_cancelquote
+  - oms_orders/api_omsord_user_cancelreplaceorder
+  - oms_orders/api_omsord_user_createquote
+  - oms_orders/api_omsord_user_getopenorders
+  - oms_orders/api_omsord_user_getopenquotes
+  - oms_orders/api_omsord_user_getorderfee
+  - oms_orders/api_omsord_user_getorderhistory
+  - oms_orders/api_omsord_user_getorderhistorybyorderid
+  - oms_orders/api_omsord_user_getordershistory
+  - oms_orders/api_omsord_user_getorderstatus
+  - oms_orders/api_omsord_user_modifyorder
+  - oms_orders/api_omsord_user_sendorder
+  - oms_orders/api_omsord_user_submitblocktrade
+  - oms_orders/api_omsord_user_updatequote
+  - products/api_products_divider
+  - products/api_prods_user_getproduct
+  - products/api_prods_user_getproducts
+  - instrs/api_instrs_divider
+  - instrs/api_instrs_user_getinstrument
+  - instrs/api_instrs_user_getinstruments
+  - instrs/api_instrs_user_getomsfeetiers
+  - tickets/api_tickets_divider
+  - tickets/api_tix_system_cancelwithdraw
+  - tickets/api_tix_system_createdepositticket
+  - tickets/api_tix_system_createwithdrawticket
+  - tickets/api_tix_user_getaccountdeposittransactions
+  - tickets/api_tix_user_getaccountwithdrawtransactions
+  - tickets/api_tix_system_getalldepositrequestinfotemplates
+  - tickets/api_tix_system_getdepositinfo
+  - tickets/api_tix_system_getdepositrequestinfotemplate
+  - tickets/api_tix_system_getdeposits
+  - tickets/api_tix_system_getdepositticket
+  - tickets/api_tix_system_getdeposittickets
+  - tickets/api_tix_system_getomswithdrawfees
+  - tickets/api_tix_user_getwithdrawfee
+  - tickets/api_tix_system_getwithdraws
+  - tickets/api_tix_system_getwithdrawtemplate
+  - tickets/api_tix_system_getwithdrawtemplatetypes
+  - tickets/api_tix_system_getwithdrawticket
+  - tickets/api_tix_system_getwithdrawtickets
+  - tickets/api_tix_system_submitdepositticketcomment
+  - tickets/api_tix_system_submitwithdrawticketcomment
+  - uncertain/api_uncertain_divider
+  - uncertain/api_uncert_user_ping
 
+  
+  # - apad-markdown-documentation/api_apad_divider
+  # - apad-markdown-documentation/api_apad_background
+  # - apad-markdown-documentation/api_apad_clawbackshares
+  # - apad-markdown-documentation/api_apad_createasset
+  # - apad-markdown-documentation/api_apad_createcoadmin
+  # - apad-markdown-documentation/api_apad_createcompany
+  # - apad-markdown-documentation/api_apad_createcompanywithexistinguser
+  # - apad-markdown-documentation/api_apad_createcompanywithuser
+  # - apad-markdown-documentation/api_apad_createuser
+  # - apad-markdown-documentation/api_apad_createuseragent
+  # - apad-markdown-documentation/api_apad_createusercoshareholder
+  # - apad-markdown-documentation/api_apad_getassets
+  # - apad-markdown-documentation/api_apad_getcompanies
+  # - apad-markdown-documentation/api_apad_getuserfromsession
+  # - apad-markdown-documentation/api_apad_getusers
+  # - apad-markdown-documentation/api_apad_removeallcoadmins
+  # - apad-markdown-documentation/api_apad_removeuserrole
+  # - apad-markdown-documentation/api_apad_setassetaccessforuser
+  # - apad-markdown-documentation/api_apad_transferasset
+  # - apad-markdown-documentation/api_apad_updatecompanyaddroles
+  # - apad-markdown-documentation/api_apad_updateuser
+  # - apad-markdown-documentation/api_apad_version
+  # - digitizer/api_digitizer_doc
+ 
+
+
+ 
 search: true
-
-code_clipboard: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This API covers the User-category calls in **version 3.3** of the Bitpoint Latam  Exchange software. It includes calls required for log-in and authentication.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The calls have been organized roughly to correspond to similar functions you would find in the Bitpoint Latam  Admin. For example, in the Admin you manage users in the Users function. So calls that manage users have been gathered in the Users section of the API.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Api hosts
 
-# Authentication
+**WSS**
 
-> To authorize, use this code:
+http://api.bitpointlatam.com/WSGateway
 
-```ruby
-require 'kittn'
+**HTTPS**
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+https://api.bitpointlatam.com:8443/AP
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-```
+## 3.4.1 New Endpoints
+**RegisterNewDevice**
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
+**GetUserDevices**
 
-```javascript
-const kittn = require('kittn');
+**GetValidate2FARequiredEndpoints**
 
-let api = kittn.authorize('meowmeowmeow');
-```
+**Validate2FA**
 
-> Make sure to replace `meowmeowmeow` with your API key.
+## Revised Calls 3.4.1
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+**SendOrder**
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Request Payload changed for Market Buy Value - if Buy order and Value (decimal) parameter is supplied, the Market order will execute up to the value specified.
 
-`Authorization: meowmeowmeow`
+**GetExchangeServiceIds**
+>Old GetExchangeServiceIDs Response
+An array of strings representing service ids.
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+>New GetExchangeServiceIds Response
+Array hard coded with a single entry: "Matching Engine"
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+    {
+        "Name": "V2ExchangeCore|1",
+        "ServiceId": "Matching Engine"
+        "URI": null
+    }
 ]
 ```
 
-This endpoint retrieves all kittens.
+**GetExchanges**
+>Old GetExchangeServiceIds Response
+A list of exchanges within a specified exchange service id.
 
-### HTTP Request
+>New GetExchangeServiceIds Response
+Retrieves exchanges from "THE" mathcing engine as there can only ever be one as of 3.4
 
-`GET http://example.com/api/kittens`
+**Validate2FA**
 
-### Query Parameters
+Behavior change, no longer has public permissions specified. 
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+**AddInstrument (DEPRECATED)**
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+Behavior change, endpoint returns with bad request message specifying the endpoint is deprecated. 
 
-## Get a Specific Kitten
+**UpdateInstrument (DEPRECATED)**
 
-```ruby
-require 'kittn'
+Behavior change, endpoint returns with bad request message specifying the endpoint is deprecated. 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+**RemoveOperatorUser**
 
-```python
-import kittn
+Behavior change from “Deprecated” to “Remove Association of Operator with User" 
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
+## 3.5.0 Behavior Changes
 
-```javascript
-const kittn = require('kittn');
+**API Behavior Changes**
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+Any query APIs that return these objects now have the below new fields and response value changes as listed.
 
-> The above command returns JSON structured like this:
+**AccountPosition**
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| NotionalHoldAmount| **decimal.** Cross Product Amount on Hold from open orders |
+| NotionalRate | **decimal.** Current notional rate from base currency |
+| TotalDayDepositNotional | **decimal.** Total Calendar Day Deposit Notional |
+| TotalMonthDepositNotional | **decimal.** Total Calendar Month Deposit Notional |
+| TotalDayWithdrawNotional | **decimal.** Total Calendar Day Withdraw Notional |
+| TotalMonthWithdrawNotional | **decimal.** Total Calendar Month Withdraw Notional |
 
-This endpoint retrieves a specific kitten.
+**OrderTrade**
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| CounterPartyClientUserId| **int.** Indicates counterparty source of trade (OMS, Remarketer, FIX) |
+| NotionalProductId | **int.** Notional product the notional value was captured in |
+| NotionalRate | **decimal.** Notional rate from base currency at time of trade |
+| NotionalValue | **decimal.** Notional value in base currency of venue at time of trade |
 
-### HTTP Request
+**AccountInstrumentStatistics**
 
-`GET http://example.com/kittens/<ID>`
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| NotionalProductId | **int.** Notional product the notional value was captured in |
+| DailyNotionalTradeVolume | **decimal.** Total Calendar Day Trading Notional |
+| MonthlyNotionalTradeVolume | **decimal.** Total Calendar Month Trading Notional |
+| YearlyNotionalTradeVolume | **decimal.** Total Calendar Year Trading Notional |
 
-### URL Parameters
+**VerificationLevelInstruments**
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| NotionalProductId | **int.** Notional product the notional value was captured in |
+| DailyNotionalLimit | **decimal.** Total Calendar Day Trading Notional |
+| MonthlyNotionalLimit | **decimal.** Total Calendar Month Trading Notional |
+| YearlyNotionalLimit | **decimal.** Total Calendar Year Trading Notional |
 
-## Delete a Specific Kitten
+**AccountStatistics**
 
-```ruby
-require 'kittn'
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| TotalDayDepositNotional | **decimal.** Total Calendar Day Deposit Notional |
+| TotalMonthDepositNotional | **decimal.** Total Calendar Month Deposit Notional |
+| TotalDayWithdrawNotional | **decimal.** Total Calendar Day Withdraw Notional |
+| TotalMonthWithdrawNotional | **decimal.** Total Calendar Month Withdraw Notional |
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+**VerificationLevelProducts**
 
-```python
-import kittn
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| DailyDepositNotionalLimit | **decimal.** Total Calendar Day Deposit Notional Limit |
+| MonthlyDepositNotionalLimit | **decimal.** Total Calendar Month Deposit Notional Limit |
+| DailyWithdrawNotionalLimit | **decimal.** Total Calendar Day Withdraw Notional Limit |
+| MonthlyWithdrawNotionalLimit | **decimal.** Total Calendar Month Withdraw Notional Limit |
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+**OMSInfo**
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| BaseNotionalProductId | **int.** Id of Base Product to be used in Notional Limits |
 
-```javascript
-const kittn = require('kittn');
+**Fee**
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| FeeTier | **int.** Id of the Fee Tier the fee belongs to. Matches AccountInfo FeeGroupId (previously existing field) |
 
-> The above command returns JSON structured like this:
+**Instrument**
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+| Key                 | Value                                                        |
+| ------------------- | ------------------------------------------------------------ |
+| PriceCollarIndexDifference | **decimal.** The percent different from the index price that an order is allowed to execute at. Anything falling outside of the index price +/- (1 + PriceCollarIndexDifference) will be collared |
+| PriceCollarConvertToOtcEnabled | **bool.** Turns on/off conversion of collared orders to block trades |
+| PriceCollarConvertToOtcClientUserId | **int.** Internal System UserId to assign the collared otc orders to. Should alwaays be 1 in current implementation (default) |
+| PriceCollarConvertToOtcAccountId | **int.** Account Id to assign the collared orders to. This will effectively be a liability account that will need to have working block trades managed by operator. |
+| PriceCollarConvertToOtcThreshold | **decimal.** Threshold of remaining size of order to convert to block trade. If collared order does not have remaining quantity above this threshold the remainder will be cancelled. |
+| OtcConvertSizeEnabled | **bool.** Turns on/off auto conversion of 'large' limit orders converted to block trade orders upon receipt by the matching engine |
+| OtcConvertSizeThreshold | **decimal.** Threshold to convert limit order quantity to block trade automatically for discovery by block trade market participants |
 
-This endpoint deletes a specific kitten.
+## Revised Calls 3.5.0
 
-### HTTP Request
+Support for additional fields has been added to the following requests:
 
-`DELETE http://example.com/kittens/<ID>`
+ * GetAccounts
+ * SubmitBlockTrade
+ * ModifyOrder
 
-### URL Parameters
+Additional fields have been added to the following responses:
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+* GetWithdrawFormTemplateTypes
+* SubmitAccountLedgerEntry
+* GetAllLedgerEntryTickets
+* GetOpenWithdrawHolds
+* GetOrderStatus
+* TransferFunds
+* GetLevel1 / Level1UpdateEvent / SubscribeLevel1
+
+## 3.5.0 New Endpoints
+
+**GetAllAccountsConfigs**
+
+**GetOMSFeeTiers**
+
+**GetAllOpenTradeReports**
+
+**SubscribeBlockTrades**
+
+**UnsubscribeBlockTrades**
 
